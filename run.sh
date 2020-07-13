@@ -20,7 +20,7 @@ sleep 15
 echo "\n ========================= \n"
 echo "\n Jenkins Passwd inicial é\n" 
 cat ~/testedevops/initialAdminPassword
-export IP_SERVIDOR=$(cat ~/testedevops/ip_servidor) 
+export IP_SERVIDOR=$(cat ./ip_servidor) 
 echo "\nAcesso a aplicação: http://$IP_SERVIDOR:3000\n"
 echo "Acesso ao Jenkins: http://$IP_SERVIDOR:8080\n"
 echo "Script finalizado"

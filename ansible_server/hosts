@@ -1,0 +1,2 @@
+[Server] 
+ 107.23.52.80 ansible_ssh_private_key_file=/Users/southsystem/Downloads/matheus.pem ansible_ssh_user=ubuntu

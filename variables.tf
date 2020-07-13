@@ -21,17 +21,17 @@ variable "instance_type" {
     default = "t2.micro"
 }
 variable "tag"{
-    default = "Servidor"
+    default = "MY_TAG"
 }
 #Change MY_PATH for path where is your aws key
 variable "ansible_ssh_key" {
-    default = "ansible_ssh_private_key_file=/my_path/my_key.pem"
+    default = "ansible_ssh_private_key_file=/MY_PATH/MY_KEY.pem"
 }
 
 variable "ansible_group"{
     default = "[MY_GROUP]"
 }
-#Chance MY_PATH for the path where is your git clone was done
+#Change MY_PATH for the path where is your git clone was done
 variable "ansible_host_path" {
     default = "/MY_PATH/ansible_server/hosts"
 }

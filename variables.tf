@@ -1,50 +1,40 @@
 variable "region" {
     default = "us-east-1"
 }
-
-/*Variaveis de security grou
-variable "http_port" {
-    default = 80
-}
-variable "ssh_port" {
-    default = 22
-}
-#variavel do MEU IP
-variable "my_system" { 
-    default = "0.0.0.0/0"
-}*/
-#variavel AMI e tipo da instancia
-variable "ami" {
+variable "ami" { #it's ubuntu 20.04 default image, not tested in another ubuntu release
     default = "ami-068663a3c619dd892"
 }
 variable "instance_type" {
     default = "t2.micro"
 }
+#change by your tag
 variable "tag"{
     default = "MY_TAG"
 }
-#Change MY_PATH for path where is your aws key
+#Change MY_PATH for path where is your aws key and MY_KEY for your aws keyname.pem
 variable "ansible_ssh_key" {
     default = "ansible_ssh_private_key_file=/MY_PATH/MY_KEY.pem"
 }
-
+#change MY_GROUP for anything that you want
 variable "ansible_group"{
     default = "[MY_GROUP]"
 }
-#Change MY_PATH for the path where is your git clone was done
+#DO NOT CHANGE
 variable "ansible_host_path" {
-    default = "/MY_PATH/ansible_server/hosts"
+    default = "./ansible_server/hosts"
 }
 
 #Change my_key_name for the name of your aws key (without .pem at the end)
 variable "key_name"{
     default = "MY_KEY"
 }
+#if you're using ubuntu distribuition by aws, it works fine
 variable "ansible_user"{
     default = "ansible_ssh_user=ubuntu"
 }
+#do not change
 variable "server_ip_path"{
-    default = "."
+    default = "./ip_servidor.txt"
 }
 
 

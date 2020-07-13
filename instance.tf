@@ -3,7 +3,7 @@ resource "aws_instance" "ubuntu" {
   instance_type = var.instance_type
   key_name = var.key_name
  
-  security_groups = ["SG1"] //attacha o Security group na instancia
+  security_groups = ["YOUR_SECURITY_GROUP"] //Change by your security aws security group ( ports must be open 8080, 3000 and 5000)
 
   //adiciona tags na instancia
   tags = {

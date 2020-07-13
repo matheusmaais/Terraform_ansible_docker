@@ -1,7 +1,14 @@
 ---
 - hosts: all
   become: true
+  gather_facts: no
   tasks:
+  - name: Aguardando servidor
+    wait_for_connection:
+      delay: 30
+      timeout: 90
+      
+
   - name: Update apt
     remote_user: ubuntu
     apt:
@@ -10,11 +17,8 @@
   - name: Instalando docker
     remote_user: ubuntu
     apt:
-      name: "{{ item }}"
+      name: ['docker.io', 'docker-compose']
       state: present
-    with_items:
-      - docker.io 
-      - docker-compose
     become: true
 
   - name: Adicionando usuario ubuntu no grupo docker
@@ -43,10 +47,14 @@
        project_src: /home/ubuntu/testegit
     register: output
 
+  - name: Aguardando o Arquivo de Senha do Jenkins ser criado
+    wait_for:
+      path: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
+
   - name: Grava o Password inicial do Jenkins na sua maquina localrm
     fetch:
       src: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
-      dest: ../
+      dest: ../JenkinsPassword
       flat: yes
     become: true
 

@@ -15,14 +15,10 @@ echo "Aguardando o servidor ficar pronto para rodar o Ansible"
 ansible-playbook ansible_server/provisioning.yml -i ansible_server/hosts
 echo "\n ========================= \n"
 echo "\n Jenkins Passwd inicial é\n" 
-<<<<<<< HEAD
 cat JenkinsPassword
 unset IP_SERVIDOR
 export IP_SERVIDOR=$(cat ./ip_servidor.txt) 
-=======
-cat ~/testedevops/initialAdminPassword
-export IP_SERVIDOR=$(cat ./ip_servidor) 
->>>>>>> 7f64c528a42b5e4cb09576e0a496748dc918e8d6
 echo "\nAcesso a aplicação: http://$IP_SERVIDOR:3000\n"
 echo "Acesso ao Jenkins: http://$IP_SERVIDOR:8080\n"
 echo "Script finalizado"
+

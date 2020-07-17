@@ -13,7 +13,7 @@ terraform apply -auto-approve
 echo "\n ========================= \n"
 echo "Aguardando o servidor ficar pronto para rodar o Ansible"
 ansible-playbook ansible_server/provisioning.yml -i ansible_server/hosts
-echo "\n ========================= \n"
+echo "\n =========================== \n\n"
 echo "\n Jenkins Passwd inicial é\n" 
 cat JenkinsPassword
 unset IP_SERVIDOR

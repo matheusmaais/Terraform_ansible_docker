@@ -1,40 +1,43 @@
 variable "region" {
-    default = "us-east-1"
+    default = ""
 }
 variable "ami" { #it's ubuntu 20.04 default image, not tested in another ubuntu release
-    default = "ami-068663a3c619dd892"
+    default = ""
 }
 variable "instance_type" {
-    default = "t2.micro"
+    default = ""
 }
 #change by your tag
 variable "tag"{
-    default = "MY_TAG"
+    default = ""
 }
 #Change MY_PATH for path where is your aws key and MY_KEY for your aws keyname.pem
 variable "ansible_ssh_key" {
-    default = "ansible_ssh_private_key_file=/MY_PATH/MY_KEY.pem"
+    default = ""
 }
 #change MY_GROUP for anything that you want
 variable "ansible_group"{
-    default = "[MY_GROUP]"
+    default = ""
 }
 #DO NOT CHANGE
 variable "ansible_host_path" {
     default = "./ansible_server/hosts"
 }
 
-#Change my_key_name for the name of your aws key (without .pem at the end)
 variable "key_name"{
-    default = "MY_KEY"
+    default = ""
 }
-#if you're using ubuntu distribuition by aws, it works fine
+
 variable "ansible_user"{
-    default = "ansible_ssh_user=ubuntu"
+    default = ""
 }
 #do not change
 variable "server_ip_path"{
     default = "./ip_servidor.txt"
+ } 
+
+variable "security_group"{
+    default = ""
 }
 
 

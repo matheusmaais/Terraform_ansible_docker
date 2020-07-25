@@ -51,7 +51,7 @@
     wait_for:
       path: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
 
-  - name: Grava o Password inicial do Jenkins na sua maquina localrm
+  - name: Grava o Password inicial do Jenkins na sua maquina local
     fetch:
       src: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
       dest: ../JenkinsPassword

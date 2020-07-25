@@ -20,6 +20,6 @@ unset IP_SERVIDOR
 export IP_SERVIDOR=$(cat ./ip_servidor.txt) 
 echo "\nAcesso a aplicação: http://$IP_SERVIDOR:3000\n"
 echo "Acesso ao Jenkins: http://$IP_SERVIDOR:8080\n"
-echo "Para destruir o ambiente digite \n terraform destroy"
+echo "\n\nPara destruir o ambiente digite: \n terraform destroy"
 echo "Script finalizado!"
 

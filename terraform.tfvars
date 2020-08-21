@@ -1,3 +1,4 @@
+
 region = "us-east-1"
 ami = "ami-068663a3c619dd892" //it`s a ubuntu20 AMI, but you can change as you wish
 instance_type = "t2.micro"

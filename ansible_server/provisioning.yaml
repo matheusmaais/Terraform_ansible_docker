@@ -1,0 +1,61 @@
+---
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Aguardando servidor
+    wait_for_connection:
+      delay: 30
+      timeout: 90
+      
+
+  - name: Update apt
+    remote_user: ubuntu
+    apt:
+      update_cache: yes
+
+  - name: Instalando docker
+    remote_user: ubuntu
+    apt:
+      name: ['docker.io', 'docker-compose']
+      state: present
+    become: true
+
+  - name: Adicionando usuario ubuntu no grupo docker
+    remote_user: ubuntu
+    user:
+      name: "ubuntu"
+      group: "docker"
+      append: yes
+    tags:
+      - docker
+          
+  - name: Clonando Repositorio
+    git:
+      repo: https://github.com/matheusmaais/testegit.git
+      dest: /home/ubuntu/testegit
+  
+  - name: Rodando Container da Aplicacao
+    docker_container: 
+      name: testedocker
+      image: matheusmaais/testedocker2
+      ports: 3000:3000
+      detach: yes
+    
+  - name: Rodando Docker-compose
+    docker_compose:
+       project_src: /home/ubuntu/testegit
+    register: output
+
+  - name: Aguardando o Arquivo de Senha do Jenkins ser criado
+    wait_for:
+      path: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
+
+  - name: Grava o Password inicial do Jenkins na sua maquina local
+    fetch:
+      src: /home/ubuntu/Jenkins/Jenkins_data/secrets/initialAdminPassword
+      dest: ../JenkinsPassword
+      flat: yes
+    become: true
+
+   
